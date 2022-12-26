@@ -15,8 +15,8 @@ export default class ContactForm extends Component {
     handleFformSubmit: PropTypes.func.isRequired,
   };
 
-  handleInputChange = e => {
-    const { name, value } = e.currentTarget;
+  handleInputChange = ({ target: { name, value } }) => {
+    // const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
 

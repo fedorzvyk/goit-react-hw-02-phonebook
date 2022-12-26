@@ -38,8 +38,8 @@ export class App extends Component {
     }));
   };
 
-  handleFilter = e => {
-    const { name, value } = e.currentTarget;
+  handleFilter = ({ target: { name, value } }) => {
+    // const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
 
