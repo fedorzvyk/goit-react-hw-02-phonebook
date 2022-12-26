@@ -1,6 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Form } from './ContactForm.styled';
+import { Input, Label, Button } from 'commonStyles/coommonStyles.styled';
+import { FaPhoneSquareAlt } from 'react-icons/fa';
+
 export default class ContactForm extends Component {
   state = {
     name: '',
@@ -8,7 +12,7 @@ export default class ContactForm extends Component {
   };
 
   static propTypes = {
-    formSubmitHandler: PropTypes.func.isRequired,
+    handleFformSubmit: PropTypes.func.isRequired,
   };
 
   handleInputChange = e => {
@@ -18,7 +22,7 @@ export default class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.formSubmitHandler(this.state);
+    this.props.handleFformSubmit(this.state);
     this.resetForm();
   };
 
@@ -27,34 +31,37 @@ export default class ContactForm extends Component {
   };
 
   render() {
+    const { name, number } = this.state;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
-        <label>
+      <Form className="form" onSubmit={this.handleSubmit}>
+        <Label>
           Name
-          <input
+          <Input
             type="text"
             name="name"
-            value={this.state.name}
+            value={name}
             onChange={this.handleInputChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number
-          <input
+          <Input
             type="tel"
             name="number"
-            value={this.state.number}
+            value={number}
             onChange={this.handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </Label>
+        <Button type="submit">
+          <FaPhoneSquareAlt /> Add contact
+        </Button>
+      </Form>
     );
   }
 }

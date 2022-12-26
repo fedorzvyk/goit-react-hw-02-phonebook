@@ -2,6 +2,7 @@ import { Component } from 'react';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
+import { Box } from '../commonStyles/Box';
 import { nanoid } from 'nanoid';
 
 export class App extends Component {
@@ -15,7 +16,7 @@ export class App extends Component {
     filter: '',
   };
 
-  formSubmitHandler = data => {
+  handleFformSubmit = data => {
     data.id = nanoid();
 
     const repeatingName = this.state.contacts.find(
@@ -50,27 +51,48 @@ export class App extends Component {
   };
 
   render() {
+    const { filter } = this.state;
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        gridGap={5}
+        width="500px"
+        my={5}
+        mx="auto"
+        py={6}
+        px={4}
+        bg="muted"
+        border="normal"
+        borderRadius="normal"
+        as="main"
       >
-        <h1>Phonebook</h1>
-        <ContactForm formSubmitHandler={this.formSubmitHandler} />
-        <h2>Contacts</h2>
-        <Filter filter={this.state.filter} onFilter={this.handleFilter} />
-        <ContactList
-          contacts={this.visibleContacts()}
-          handleDelete={this.handleDelete}
-        />
-      </div>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          gridGap={5}
+          as="section"
+        >
+          <h1>Phonebook</h1>
+          <ContactForm handleFformSubmit={this.handleFformSubmit} />
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          gridGap={5}
+          as="section"
+        >
+          <h2>Contacts</h2>
+          <Filter filter={filter} onFilter={this.handleFilter} />
+          <ContactList
+            contacts={this.visibleContacts()}
+            handleDelete={this.handleDelete}
+          />
+        </Box>
+      </Box>
     );
   }
 }

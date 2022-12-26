@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import { Input, Label } from 'commonStyles/coommonStyles.styled';
 
 const Filter = ({ filter, onFilter }) => {
   return (
-    <label>
+    <Label>
       Find contacts by name
-      <input
+      <Input
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -13,7 +14,7 @@ const Filter = ({ filter, onFilter }) => {
         value={filter}
         onChange={onFilter}
       />
-    </label>
+    </Label>
   );
 };
 
