@@ -15,8 +15,6 @@ export const Input = styled.input`
   outline: none;
   transition: transform 250ms linear, border-color 250ms linear,
     color 250ms linear;
-
-  :focus,
   :hover,
   :focus-visible {
     color: ${p => p.theme.colors.text};
