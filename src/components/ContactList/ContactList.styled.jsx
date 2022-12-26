@@ -10,7 +10,7 @@ export const Item = styled.li`
 `;
 export const ItemName = styled.span`
   /* max-width: 200px; */
-  min-width: 120px;
+  min-width: 80px;
 `;
 
 export const List = styled.ul`

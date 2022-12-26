@@ -58,7 +58,7 @@ export class App extends Component {
         flexDirection="column"
         alignItems="center"
         gridGap={5}
-        width="500px"
+        maxWidth="500px"
         my={5}
         mx="auto"
         py={6}
