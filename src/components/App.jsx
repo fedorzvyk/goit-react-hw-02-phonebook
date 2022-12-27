@@ -17,16 +17,17 @@ export class App extends Component {
   };
 
   handleFformSubmit = data => {
-    data.id = nanoid();
-
     const repeatingName = this.state.contacts.find(
       contact => contact.name === data.name
     );
 
     if (repeatingName) {
       alert(`${data.name} is already in contacts.`);
-      return;
+      // this.setState({ name: '', number: '' });
+      // data.name = '';
+      return null;
     }
+    data.id = nanoid();
     this.setState(({ contacts }) => ({
       contacts: [...contacts, data],
     }));

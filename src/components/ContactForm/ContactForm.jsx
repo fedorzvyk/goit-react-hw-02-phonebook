@@ -22,12 +22,11 @@ export default class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onFormSubmit(this.state);
-    this.resetForm();
-  };
-
-  resetForm = () => {
-    this.setState({ name: '', number: '' });
+    if (this.props.onFormSubmit(this.state) === null) {
+      return;
+    } else {
+      this.setState({ name: '', number: '' });
+    }
   };
 
   render() {

@@ -29,7 +29,7 @@ export const Button = styled.button`
   border: ${p => p.theme.borders.normal};
   background-color: ${p => p.theme.colors.primary};
   cursor: pointer;
-  min-width: 150px;
+  min-width: 120px;
   display: flex;
   gap: 10px;
   align-items: center;
