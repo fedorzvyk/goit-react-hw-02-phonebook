@@ -76,7 +76,7 @@ export class App extends Component {
           as="section"
         >
           <h1>Phonebook</h1>
-          <ContactForm handleFformSubmit={this.handleFformSubmit} />
+          <ContactForm onFormSubmit={this.handleFformSubmit} />
         </Box>
         <Box
           display="flex"
@@ -89,7 +89,7 @@ export class App extends Component {
           <Filter filter={filter} onFilter={this.handleFilter} />
           <ContactList
             contacts={this.visibleContacts()}
-            handleDelete={this.handleDelete}
+            onDelete={this.handleDelete}
           />
         </Box>
       </Box>

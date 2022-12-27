@@ -12,7 +12,7 @@ export default class ContactForm extends Component {
   };
 
   static propTypes = {
-    handleFformSubmit: PropTypes.func.isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
   };
 
   handleInputChange = ({ target: { name, value } }) => {
@@ -22,7 +22,7 @@ export default class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleFformSubmit(this.state);
+    this.props.onFormSubmit(this.state);
     this.resetForm();
   };
 

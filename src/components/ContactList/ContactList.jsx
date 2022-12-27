@@ -3,7 +3,7 @@ import { Button } from 'commonStyles/coommonStyles.styled';
 import { Item, List, ItemName } from './ContactList.styled';
 import { FaPhoneAlt, FaUserAlt, FaTrash } from 'react-icons/fa';
 
-const ContactList = ({ contacts, handleDelete }) => {
+const ContactList = ({ contacts, onDelete }) => {
   return (
     <List>
       {contacts.map(({ id, number, name }) => (
@@ -17,7 +17,7 @@ const ContactList = ({ contacts, handleDelete }) => {
           <Button
             type="button"
             onClick={() => {
-              handleDelete(id);
+              onDelete(id);
             }}
           >
             <FaTrash /> Delete
@@ -36,7 +36,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
-  handleDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;
